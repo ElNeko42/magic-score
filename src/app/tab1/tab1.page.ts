@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-
-import { OpcionesComponent } from '../modales/opciones/opciones.component';
 
 @Component({
   selector: 'app-tab1',
@@ -12,44 +9,32 @@ export class Tab1Page {
   vidaJugador1: number = 20;
   vidaJugador2: number = 20;
 
-  constructor(private modalController: ModalController) {}
+  mostrarColoresJugador1: boolean = false;
+  mostrarColoresJugador2: boolean = false;
+
+  constructor() {}
 
   aumentarVida(jugador: number) {
     if (jugador === 1) {
       this.vidaJugador1++;
-      this.animateLifeChange('.player1');
     } else {
       this.vidaJugador2++;
-      this.animateLifeChange('.player2');
     }
   }
 
-  disminuirVida(jugador: number, event: Event) {
-    event.stopPropagation(); // Esto evita que el evento de click se propague al contenedor y active la función aumentarVida
-  
-    if (jugador === 1) {
+  disminuirVida(jugador: number) {
+    if (jugador === 1 && this.vidaJugador1 > 0) {
       this.vidaJugador1--;
-    } else if (jugador === 2) {
+    } else if (jugador === 2 && this.vidaJugador2 > 0) {
       this.vidaJugador2--;
     }
   }
-  
-  animateLifeChange(selector: string) {
-    const element = document.querySelector(selector);
-    if (element) {
-      element.classList.add('life-changed');
-      setTimeout(() => {
-        element.classList.remove('life-changed');
-      }, 500);
-    }
+
+  toggleColoresJugador1() {
+    this.mostrarColoresJugador1 = !this.mostrarColoresJugador1;
   }
 
-  async openModal() {
-    const modal = await this.modalController.create({
-      component: OpcionesComponent
-    });
-    return await modal.present();
+  toggleColoresJugador2() {
+    this.mostrarColoresJugador2 = !this.mostrarColoresJugador2;
   }
 }
-
-

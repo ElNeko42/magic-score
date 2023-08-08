@@ -7,6 +7,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { OpcionesComponent } from '../modales/opciones/opciones.component';
+import { ColoresComponent } from '../colores/colores.component'; // Asegúrate de ajustar la ruta al archivo del componente
+
 
 @NgModule({
   imports: [
@@ -14,8 +16,9 @@ import { OpcionesComponent } from '../modales/opciones/opciones.component';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    Tab1PageRoutingModule,
+    
   ],
-  declarations: [Tab1Page, OpcionesComponent],
+  declarations: [Tab1Page, OpcionesComponent,ColoresComponent ],
 })
 export class Tab1PageModule {}
