@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Cambio aquí */
+  justify-content: space-between; 
 }
 
 .header {
@@ -17,13 +17,13 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 10px 0; /* Añadido para dar un poco de espacio vertical */
+  padding: 10px 0;
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Aseguramos que el contenido comienza a la izquierda */
+  justify-content: flex-start; 
   width: 100%;
   padding: 10px 0;
 }
@@ -42,13 +42,21 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  flex-grow: 1; /* Añadido para que ocupe todo el espacio vertical disponible */
+  flex-grow: 1; 
 }
 
 .life {
   font-size: 48px;
   flex-grow: 1;
   text-align: center;
+  color: white; 
+
+}
+.zero-life {
+  color: red;
+}
+
+.life {
 }
 
 .divider {
