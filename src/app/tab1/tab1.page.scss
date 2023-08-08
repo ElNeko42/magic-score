@@ -20,9 +20,12 @@
   padding: 10px 0; /* Añadido para dar un poco de espacio vertical */
 }
 
-.header ion-label {
-  flex-grow: 1;
-  text-align: center;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aseguramos que el contenido comienza a la izquierda */
+  width: 100%;
+  padding: 10px 0;
 }
 
 .options-icon {

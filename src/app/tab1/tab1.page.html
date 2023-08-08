@@ -4,9 +4,8 @@
     <div class="player player1">
       <div class="header">
         <ion-icon name="ellipsis-vertical" class="options-icon" (click)="openModal()"></ion-icon>
-        <ion-label>Jugador 1</ion-label>
       </div>
-      <div class="life-container" (click)="aumentarVida(1)">
+      <div class="life-container">
         <ion-button (click)="disminuirVida(1, $event)" slot="start">-</ion-button>
         <ion-label class="life">{{ vidaJugador1 }}</ion-label>
         <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
@@ -20,9 +19,8 @@
     <div class="player player2">
       <div class="header">
         <ion-icon name="ellipsis-vertical" class="options-icon" (click)="openModal()"></ion-icon>
-        <ion-label>Jugador 2</ion-label>
       </div>
-      <div class="life-container" (click)="aumentarVida(2)">
+      <div class="life-container">
         <ion-button (click)="disminuirVida(2, $event)" slot="start">-</ion-button>
         <ion-label class="life">{{ vidaJugador2 }}</ion-label>
         <ion-button (click)="aumentarVida(2)" slot="end">+</ion-button>

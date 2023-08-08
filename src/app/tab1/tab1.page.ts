@@ -25,15 +25,15 @@ export class Tab1Page {
   }
 
   disminuirVida(jugador: number, event: Event) {
+    event.stopPropagation(); // Esto evita que el evento de click se propague al contenedor y active la función aumentarVida
+  
     if (jugador === 1) {
       this.vidaJugador1--;
-      this.animateLifeChange('.player1');
-    } else {
+    } else if (jugador === 2) {
       this.vidaJugador2--;
-      this.animateLifeChange('.player2');
     }
   }
-
+  
   animateLifeChange(selector: string) {
     const element = document.querySelector(selector);
     if (element) {
@@ -51,3 +51,5 @@ export class Tab1Page {
     return await modal.present();
   }
 }
+
+
