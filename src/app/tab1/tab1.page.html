@@ -1,17 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="container">
+    <!-- Jugador 1 -->
+    <div class="player player1">
+      <ion-button (click)="disminuirVida(1)">-</ion-button>
+      <ion-label>{{ vidaJugador1 }}</ion-label>
+      <ion-button (click)="aumentarVida(1)">+</ion-button>
+    </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <!-- Jugador 2 -->
+    <div class="player player2">
+      <ion-button (click)="disminuirVida(2)">-</ion-button>
+      <ion-label>{{ vidaJugador2 }}</ion-label>
+      <ion-button (click)="aumentarVida(2)">+</ion-button>
+    </div>
+  </div>
 </ion-content>

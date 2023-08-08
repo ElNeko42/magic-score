@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    flex-direction: column; 
+  }
+  
+  .player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%; 
+    width: 100%; 
+    transition: background-color 0.3s; 
+  
+    &.player1 {
+      transform: rotate(180deg); 
+    }
+  
+    &.life-changed {
+      background-color: rgba(255, 0, 0, 0.3); 
+    }
+  }
+  
