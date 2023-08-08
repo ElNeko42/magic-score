@@ -2,16 +2,31 @@
   <div class="container">
     <!-- Jugador 1 -->
     <div class="player player1">
-      <ion-button (click)="disminuirVida(1)">-</ion-button>
-      <ion-label>{{ vidaJugador1 }}</ion-label>
-      <ion-button (click)="aumentarVida(1)">+</ion-button>
+      <div class="header">
+        <ion-icon name="ellipsis-vertical" class="options-icon" (click)="openModal()"></ion-icon>
+        <ion-label>Jugador 1</ion-label>
+      </div>
+      <div class="life-container" (click)="aumentarVida(1)">
+        <ion-button (click)="disminuirVida(1, $event)" slot="start">-</ion-button>
+        <ion-label class="life">{{ vidaJugador1 }}</ion-label>
+        <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
+      </div>
     </div>
+
+    <!-- Barra horizontal -->
+    <div class="divider"></div>
 
     <!-- Jugador 2 -->
     <div class="player player2">
-      <ion-button (click)="disminuirVida(2)">-</ion-button>
-      <ion-label>{{ vidaJugador2 }}</ion-label>
-      <ion-button (click)="aumentarVida(2)">+</ion-button>
+      <div class="header">
+        <ion-icon name="ellipsis-vertical" class="options-icon" (click)="openModal()"></ion-icon>
+        <ion-label>Jugador 2</ion-label>
+      </div>
+      <div class="life-container" (click)="aumentarVida(2)">
+        <ion-button (click)="disminuirVida(2, $event)" slot="start">-</ion-button>
+        <ion-label class="life">{{ vidaJugador2 }}</ion-label>
+        <ion-button (click)="aumentarVida(2)" slot="end">+</ion-button>
+      </div>
     </div>
   </div>
 </ion-content>

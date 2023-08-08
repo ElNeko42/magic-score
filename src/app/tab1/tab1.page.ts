@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
+import { OpcionesComponent } from '../modales/opciones/opciones.component';
 
 @Component({
   selector: 'app-tab1',
@@ -9,44 +12,42 @@ export class Tab1Page {
   vidaJugador1: number = 20;
   vidaJugador2: number = 20;
 
-  constructor() {}
-
-  disminuirVida(jugador: number) {
-    if (jugador === 1) {
-      this.vidaJugador1--;
-    } else {
-      this.vidaJugador2--;
-    }
-    this.lifeChanged(jugador);
-  }
+  constructor(private modalController: ModalController) {}
 
   aumentarVida(jugador: number) {
     if (jugador === 1) {
       this.vidaJugador1++;
+      this.animateLifeChange('.player1');
     } else {
       this.vidaJugador2++;
+      this.animateLifeChange('.player2');
     }
-    this.lifeChanged(jugador);
   }
 
-  lifeChanged(player: number) {
-    if (player === 1) {
-        const player1Element = document.querySelector('.player1');
-        if (player1Element) {
-            player1Element.classList.add('life-changed');
-            setTimeout(() => {
-                player1Element.classList.remove('life-changed');
-            }, 300);
-        }
+  disminuirVida(jugador: number, event: Event) {
+    if (jugador === 1) {
+      this.vidaJugador1--;
+      this.animateLifeChange('.player1');
     } else {
-        const player2Element = document.querySelector('.player2');
-        if (player2Element) {
-            player2Element.classList.add('life-changed');
-            setTimeout(() => {
-                player2Element.classList.remove('life-changed');
-            }, 300);
-        }
+      this.vidaJugador2--;
+      this.animateLifeChange('.player2');
     }
-}
+  }
 
+  animateLifeChange(selector: string) {
+    const element = document.querySelector(selector);
+    if (element) {
+      element.classList.add('life-changed');
+      setTimeout(() => {
+        element.classList.remove('life-changed');
+      }, 500);
+    }
+  }
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: OpcionesComponent
+    });
+    return await modal.present();
+  }
 }

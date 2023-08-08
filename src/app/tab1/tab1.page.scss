@@ -1,25 +1,55 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-    flex-direction: column; 
-  }
-  
-  .player {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50%; 
-    width: 100%; 
-    transition: background-color 0.3s; 
-  
-    &.player1 {
-      transform: rotate(180deg); 
-    }
-  
-    &.life-changed {
-      background-color: rgba(255, 0, 0, 0.3); 
-    }
-  }
-  
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.player {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Cambio aquí */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0; /* Añadido para dar un poco de espacio vertical */
+}
+
+.header ion-label {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.options-icon {
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.player1 {
+  transform: rotate(180deg);
+}
+
+.life-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-grow: 1; /* Añadido para que ocupe todo el espacio vertical disponible */
+}
+
+.life {
+  font-size: 48px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.divider {
+  height: 2px;
+  background-color: #ccc;
+  width: 100%;
+}
