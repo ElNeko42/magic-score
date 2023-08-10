@@ -29,6 +29,11 @@
 .player1 {
   transform: rotate(180deg);
 }
+.player1, .player2 {
+  background-image: url('../imagenes/psychedelic.png');
+  background-repeat: repeat;  /* Esto asegura que la textura se repita si es más pequeña que el contenedor */
+}
+
 
 .life-container {
   display: flex;
