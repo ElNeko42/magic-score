@@ -15,7 +15,7 @@ export class Tab1Page {
     orange: '#FFA500',
     white: '#FFFFFF',
     green: '#008000',
-    red: '#FF0000',
+    red: '#900000',
     blue: '#0000FF',
     black: '#000000',
     yellow: '#FFFF00',
@@ -24,6 +24,8 @@ export class Tab1Page {
 };
 textColor1: string = 'white';
 textColor2: string = 'white';
+colorSave1: string='white'
+colorSave2: string='white'
 iconColor1: string = 'white';
 iconColor2: string = 'white';
 
@@ -32,18 +34,30 @@ iconColor2: string = 'white';
   aumentarVida(jugador: number) {
     if (jugador === 1) {
       this.vidaJugador1++;
+      if(this.vidaJugador1>=1){
+        this.textColor1=this.colorSave1;
+      }
     } else {
       this.vidaJugador2++;
+      if(this.vidaJugador2>=1){
+        this.textColor2=this.colorSave2;
+      }
     }
   }
 
   disminuirVida(jugador: number) {
-    if (jugador === 1 && this.vidaJugador1 > 0) {
-      this.vidaJugador1--;
-    } else if (jugador === 2 && this.vidaJugador2 > 0) {
-      this.vidaJugador2--;
+    if (jugador === 1) {
+        this.vidaJugador1--;
+        if(this.vidaJugador1<=0){
+          this.textColor1='red';
+        }
+    } else if (jugador === 2 ) {
+        this.vidaJugador2--;
+        if(this.vidaJugador2<=0){
+          this.textColor2='red';
+        }
     }
-  }
+}
 
   toggleColores(jugador: number) {
     if (jugador === 1) {
@@ -59,6 +73,7 @@ iconColor2: string = 'white';
         if (player1) {
             player1.style.backgroundColor = color;
             this.textColor1 = textColor;
+            this.colorSave1 =textColor;
             this.iconColor1 = textColor;
         }
     } else {
@@ -66,6 +81,7 @@ iconColor2: string = 'white';
         if (player2) {
             player2.style.backgroundColor = color;
             this.textColor2 = textColor;
+            this.colorSave2 =textColor;
             this.iconColor2 = textColor;
         }
     }

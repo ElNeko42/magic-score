@@ -11,7 +11,7 @@ export class ColoresComponent {
     orange: '#FFA500',
     white: '#FFFFFF',
     green: '#008000',
-    red: '#FF0000',
+    red: '#900000',
     blue: '#0000FF',
     black: '#000000',
     yellow: '#FFFF00',
