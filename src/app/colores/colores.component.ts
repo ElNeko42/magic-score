@@ -21,9 +21,9 @@ export class ColoresComponent {
 
   @Output() selectedColor = new EventEmitter<string>();
 
-  setColor(color: string) {
+  setColor(color: keyof typeof this.colors) {
     this.selectedColor.emit(this.colors[color]);
-  }
+}
 
   get colorKeys(): string[] {
     return Object.keys(this.colors);
