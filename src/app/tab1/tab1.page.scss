@@ -15,14 +15,6 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 10px 0;
-}
-
-.header {
-  display: flex;
-  align-items: center;
   justify-content: flex-start; 
   width: 100%;
   padding: 10px 0;
@@ -49,14 +41,14 @@
   font-size: 6em;
   flex-grow: 1;
   text-align: center;
-  color: white; 
-
 }
-.zero-life {
+
+.life-zero {
   color: red;
 }
 
-.life {
+.positive-life {
+  color: white;
 }
 
 .divider {

@@ -7,7 +7,7 @@
       </div>
       <div *ngIf="!mostrarColoresJugador1" class="life-container">
         <ion-button (click)="disminuirVida(1)" slot="start">-</ion-button>
-        <ion-label class="life" [class.life-zero]="vidaJugador1 === 0">{{ vidaJugador1 }}</ion-label>
+        <ion-label class="life" [ngClass]="getLifeClass(vidaJugador1)">{{ vidaJugador1 }}</ion-label>
         <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
       </div>
       <app-colores *ngIf="mostrarColoresJugador1"></app-colores>
@@ -23,7 +23,7 @@
       </div>
       <div *ngIf="!mostrarColoresJugador2" class="life-container">
         <ion-button (click)="disminuirVida(2)" slot="start">-</ion-button>
-        <ion-label class="life" [class.life-zero]="vidaJugador2 === 0">{{ vidaJugador2 }}</ion-label>
+        <ion-label class="life" [ngClass]="getLifeClass(vidaJugador2)">{{ vidaJugador2 }}</ion-label>
         <ion-button (click)="aumentarVida(2)" slot="end">+</ion-button>
       </div>
       <app-colores *ngIf="mostrarColoresJugador2"></app-colores>

@@ -37,4 +37,8 @@ export class Tab1Page {
   toggleColoresJugador2() {
     this.mostrarColoresJugador2 = !this.mostrarColoresJugador2;
   }
+
+  getLifeClass(vida: number): string {
+    return vida === 0 ? 'life-zero' : 'positive-life';
+  }
 }
