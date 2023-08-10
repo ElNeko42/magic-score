@@ -30,15 +30,18 @@ export class Tab1Page {
     }
   }
 
-  toggleColoresJugador1() {
-    this.mostrarColoresJugador1 = !this.mostrarColoresJugador1;
+  toggleColores(jugador: number) {
+    if (jugador === 1) {
+      this.mostrarColoresJugador1 = !this.mostrarColoresJugador1;
+    } else {
+      this.mostrarColoresJugador2 = !this.mostrarColoresJugador2;
+    }
   }
 
-  toggleColoresJugador2() {
-    this.mostrarColoresJugador2 = !this.mostrarColoresJugador2;
-  }
-
-  getLifeClass(vida: number): string {
-    return vida === 0 ? 'life-zero' : 'positive-life';
+  changePlayerColor(jugador: number, color: string) {
+    const playerElement = jugador === 1 ? document.querySelector('.player1') : document.querySelector('.player2');
+    if (playerElement instanceof HTMLElement) {
+      playerElement.style.backgroundColor = color;
+    }
   }
 }

@@ -1,14 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-colores',
   templateUrl: './colores.component.html',
-  styleUrls: ['./colores.component.scss'],
+  styleUrls: ['./colores.component.scss']
 })
-export class ColoresComponent  implements OnInit {
+export class ColoresComponent {
 
-  constructor() { }
+  colors: { [key: string]: string } = {
+    orange: '#FFA500',
+    white: '#FFFFFF',
+    green: '#008000',
+    red: '#FF0000',
+    blue: '#0000FF',
+    black: '#000000',
+    yellow: '#FFFF00',
+    purple: '#800080',
+    pink: '#FFC0CB'
+  };
 
-  ngOnInit() {}
+  @Output() selectedColor = new EventEmitter<string>();
 
+  setColor(color: string) {
+    this.selectedColor.emit(this.colors[color]);
+  }
+
+  get colorKeys(): string[] {
+    return Object.keys(this.colors);
+  }
 }
