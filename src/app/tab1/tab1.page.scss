@@ -63,3 +63,24 @@
   background-color: #ccc;
   width: 100%;
 }
+.vida-cambio {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+ // animation: fadeOut 2s forwards;
+}
+.show-animation {
+  animation: fadeOut 1s;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

@@ -8,9 +8,14 @@ import { Component } from '@angular/core';
 export class Tab1Page {
   vidaJugador1: number = 20;
   vidaJugador2: number = 20;
-
+  vidaCambioJugador1: number = 0;
+  vidaCambioJugador2: number = 0;
+  timeoutJugador1: any;
+  timeoutJugador2: any;
   mostrarColoresJugador1: boolean = false;
   mostrarColoresJugador2: boolean = false;
+  animationTimeoutJugador1: any;
+  animationTimeoutJugador2: any;
   colors = {
     orange: '#FFA500',
     white: '#FFFFFF',
@@ -34,30 +39,35 @@ iconColor2: string = 'white';
   aumentarVida(jugador: number) {
     if (jugador === 1) {
       this.vidaJugador1++;
-      if(this.vidaJugador1>=1){
-        this.textColor1=this.colorSave1;
+      if (this.vidaJugador1 >= 1) {
+        this.textColor1 = this.colorSave1;
       }
+      this.handleLifeChange(jugador, 1);
     } else {
       this.vidaJugador2++;
-      if(this.vidaJugador2>=1){
-        this.textColor2=this.colorSave2;
+      if (this.vidaJugador2 >= 1) {
+        this.textColor2 = this.colorSave2;
       }
+      this.handleLifeChange(jugador, 1);
+    }
+  }
+  
+  disminuirVida(jugador: number) {
+    if (jugador === 1) {
+      this.vidaJugador1--;
+      if (this.vidaJugador1 <= 0) {
+        this.textColor1 = 'red';
+      }
+      this.handleLifeChange(jugador, -1);
+    } else if (jugador === 2) {
+      this.vidaJugador2--;
+      if (this.vidaJugador2 <= 0) {
+        this.textColor2 = 'red';
+      }
+      this.handleLifeChange(jugador, -1);
     }
   }
 
-  disminuirVida(jugador: number) {
-    if (jugador === 1) {
-        this.vidaJugador1--;
-        if(this.vidaJugador1<=0){
-          this.textColor1='red';
-        }
-    } else if (jugador === 2 ) {
-        this.vidaJugador2--;
-        if(this.vidaJugador2<=0){
-          this.textColor2='red';
-        }
-    }
-}
 
   toggleColores(jugador: number) {
     if (jugador === 1) {
@@ -85,6 +95,44 @@ iconColor2: string = 'white';
             this.iconColor2 = textColor;
         }
     }
+}
+private handleLifeChange(jugador: number, change: number) {
+  if (jugador === 1) {
+    this.vidaCambioJugador1 += change;
+    clearTimeout(this.animationTimeoutJugador1);
+    this.animationTimeoutJugador1 = setTimeout(() => {
+      this.vidaCambioJugador1 = 0;
+      // Ocultar la animación
+      const vidaCambioElement = document.querySelector('.vidaCambioJugador1');
+      if (vidaCambioElement) {
+        vidaCambioElement.classList.remove('show-animation');
+      }
+    }, 2000);
+    // Mostrar la animación
+    const vidaCambioElement = document.querySelector('.vidaCambioJugador1');
+    if (vidaCambioElement) {
+      vidaCambioElement.classList.add('show-animation');
+    }
+  } else {
+    this.vidaCambioJugador2 += change;
+    clearTimeout(this.animationTimeoutJugador2);
+    this.animationTimeoutJugador2 = setTimeout(() => {
+      this.vidaCambioJugador2 = 0;
+ // Ocultar la animación
+const vidaCambioElement = document.querySelector('.vidaCambioJugador1');
+if (vidaCambioElement) {
+  vidaCambioElement.classList.remove('show-animation');
+}
+    }, 2000);
+   // Mostrar la animación
+   const vidaCambioElement = document.querySelector('.vidaCambioJugador1');
+   if (vidaCambioElement) {
+     vidaCambioElement.classList.add('show-animation');
+     console.log('Clase show-animation agregada');  // Agrega este log
+   } else {
+     console.log('Elemento vidaCambioJugador1 no encontrado');  // Agrega este log
+   }
+  }
 }
 
 }
