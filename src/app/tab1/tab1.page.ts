@@ -126,9 +126,7 @@ if (vidaCambioElement) {
    const vidaCambioElement = document.querySelector('.vidaCambioJugador1');
    if (vidaCambioElement) {
      vidaCambioElement.classList.add('show-animation');
-     console.log('Clase show-animation agregada');  // Agrega este log
    } else {
-     console.log('Elemento vidaCambioJugador1 no encontrado');  // Agrega este log
    }
   }
 }
