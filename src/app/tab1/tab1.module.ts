@@ -7,8 +7,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { OpcionesComponent } from '../modales/opciones/opciones.component';
-import { ColoresComponent } from '../colores/colores.component'; // Asegúrate de ajustar la ruta al archivo del componente
-
+import { ColoresComponent } from '../colores/colores.component'; 
+import{PlayerFooterComponent} from '../player-footer/player-footer.component'
 
 @NgModule({
   imports: [
@@ -19,6 +19,10 @@ import { ColoresComponent } from '../colores/colores.component'; // Asegúrate d
     Tab1PageRoutingModule,
     
   ],
-  declarations: [Tab1Page, OpcionesComponent,ColoresComponent ],
+  declarations: [
+    Tab1Page, 
+    OpcionesComponent,
+    ColoresComponent,
+    PlayerFooterComponent ],
 })
 export class Tab1PageModule {}

@@ -11,8 +11,11 @@
         <ion-label class="life" [class.life-zero]="vidaJugador1 === 0">{{ vidaJugador1 }}</ion-label>
         <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
       </div>
-      <ion-icon name="heart" class="heart-icon"></ion-icon>
+      <!-- Ícono del corazón -->
+      <ion-icon *ngIf="!mostrarColoresJugador1" name="heart" class="heart-icon"></ion-icon>
       <app-colores *ngIf="mostrarColoresJugador1" (selectedColor)="changePlayerColor(1, $event)"></app-colores>
+      <!-- Footer del Jugador 1 -->
+      <app-player-footer *ngIf="!mostrarColoresJugador1"></app-player-footer>
     </div>
 
     <!-- Barra horizontal -->
@@ -29,8 +32,11 @@
         <ion-label class="life" [class.life-zero]="vidaJugador2 === 0">{{ vidaJugador2 }}</ion-label>
         <ion-button (click)="aumentarVida(2)" slot="end">+</ion-button>
       </div>
-      <ion-icon name="heart" class="heart-icon"></ion-icon>
+      <!-- Ícono del corazón -->
+      <ion-icon *ngIf="!mostrarColoresJugador2" name="heart" class="heart-icon"></ion-icon>
       <app-colores *ngIf="mostrarColoresJugador2" (selectedColor)="changePlayerColor(2, $event)"></app-colores>
+      <!-- Footer del Jugador 2 -->
+      <app-player-footer *ngIf="!mostrarColoresJugador2"></app-player-footer>
     </div>
   </div>
 </ion-content>

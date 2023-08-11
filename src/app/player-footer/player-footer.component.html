@@ -1,0 +1,14 @@
+<div class="footer-container">
+  <div class="counter">
+    <label>Veneno:</label>
+    <select [(ngModel)]="veneno">
+      <option *ngFor="let num of counterOptions" [value]="num">{{ num }}</option>
+    </select>
+  </div>
+  <div class="counter">
+    <label>Daño Comandante:</label>
+    <select [(ngModel)]="danoComandante">
+      <option *ngFor="let num of counterOptions" [value]="num">{{ num }}</option>
+    </select>
+  </div>
+</div>
