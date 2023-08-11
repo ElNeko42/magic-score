@@ -91,3 +91,8 @@
     opacity: 0;
   }
 }
+.heart-icon {
+  position: relative;
+  font-size: 24px;  // Tamaño del ícono
+  margin-top: 10px;  // Espacio superior para separarlo de las vidas
+}
