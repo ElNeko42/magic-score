@@ -12,7 +12,7 @@ export class ColoresComponent {
     white: '#FFFFFF',
     green: '#008000',
     red: '#900000',
-    blue: '#0000FF',
+    blue: '#00F6FE',
     black: '#000000',
     yellow: '#FFFF00',
     purple: '#800080',

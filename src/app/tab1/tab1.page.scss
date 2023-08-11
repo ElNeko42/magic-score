@@ -16,9 +16,10 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: flex-start; 
+  justify-content: space-between; 
   width: 100%;
   padding: 10px 0;
+  position: relative;  // Añadido para posicionar el contador temporal en relación con el encabezado
 }
 
 .options-icon {
@@ -31,9 +32,8 @@
 }
 .player1, .player2 {
   background-image: url('../imagenes/psychedelic.png');
-  background-repeat: repeat;  /* Esto asegura que la textura se repita si es más pequeña que el contenedor */
+  background-repeat: repeat;
 }
-
 
 .life-container {
   display: flex;
@@ -41,6 +41,7 @@
   justify-content: space-between;
   width: 100%;
   flex-grow: 1; 
+  position: relative;
 }
 
 .life {
@@ -63,19 +64,21 @@
   background-color: #ccc;
   width: 100%;
 }
+
 .vida-cambio {
   position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50%;  // Centrado vertical
+  left: 50%;  // Centrado horizontal
+  transform: translate(-50%, -50%);  // Asegura que el centro del contador temporal esté alineado con el centro del encabezado
   background-color: rgba(255, 255, 255, 0.7);
   padding: 5px 10px;
   border-radius: 5px;
- // animation: fadeOut 2s forwards;
 }
+
 .show-animation {
   animation: fadeOut 1s;
 }
+
 @keyframes fadeOut {
   from {
     opacity: 1;

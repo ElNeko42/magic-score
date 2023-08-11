@@ -4,13 +4,13 @@
     <div class="player player1">
       <div class="header">
         <ion-icon name="ellipsis-vertical" class="options-icon" [style.color]="iconColor1" (click)="toggleColores(1)"></ion-icon>
+        <div *ngIf="vidaCambioJugador1 !== 0" class="vida-cambio" [style.color]="vidaCambioTextColor1">{{ vidaCambioJugador1 > 0 ? '+' : '' }}{{ vidaCambioJugador1 }}</div>
       </div>
       <div *ngIf="!mostrarColoresJugador1" class="life-container">
         <ion-button (click)="disminuirVida(1)" slot="start">-</ion-button>
         <ion-label class="life" [class.life-zero]="vidaJugador1 === 0" [style.color]="textColor1">{{ vidaJugador1 }}</ion-label>
         <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
       </div>
-      <div *ngIf="vidaCambioJugador1 !== 0" class="vida-cambio ">{{ vidaCambioJugador1 > 0 ? '+' : '' }}{{ vidaCambioJugador1 }}</div>
       <app-colores *ngIf="mostrarColoresJugador1" (selectedColor)="changePlayerColor(1, $event)"></app-colores>
     </div>
 
@@ -21,13 +21,13 @@
     <div class="player player2">
       <div class="header">
         <ion-icon name="ellipsis-vertical" class="options-icon" [style.color]="iconColor2" (click)="toggleColores(2)"></ion-icon>
+        <div *ngIf="vidaCambioJugador2 !== 0" class="vida-cambio" [style.color]="vidaCambioTextColor2">{{ vidaCambioJugador2 > 0 ? '+' : '' }}{{ vidaCambioJugador2 }}</div>
       </div>
       <div *ngIf="!mostrarColoresJugador2" class="life-container">
         <ion-button (click)="disminuirVida(2)" slot="start">-</ion-button>
         <ion-label class="life" [class.life-zero]="vidaJugador2 === 0" [style.color]="textColor2">{{ vidaJugador2 }}</ion-label>
         <ion-button (click)="aumentarVida(2)" slot="end">+</ion-button>
       </div>
-      <div *ngIf="vidaCambioJugador2 !== 0" class="vida-cambio">{{ vidaCambioJugador2 > 0 ? '+' : '' }}{{ vidaCambioJugador2 }}</div>
       <app-colores *ngIf="mostrarColoresJugador2" (selectedColor)="changePlayerColor(2, $event)"></app-colores>
     </div>
   </div>

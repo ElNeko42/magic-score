@@ -21,7 +21,7 @@ export class Tab1Page {
     white: '#FFFFFF',
     green: '#008000',
     red: '#900000',
-    blue: '#0000FF',
+    blue: '#00F6FE',
     black: '#000000',
     yellow: '#FFFF00',
     purple: '#800080',
@@ -33,6 +33,8 @@ colorSave1: string='white'
 colorSave2: string='white'
 iconColor1: string = 'white';
 iconColor2: string = 'white';
+vidaCambioTextColor1: string = 'white';
+vidaCambioTextColor2: string = 'white';
 
   constructor() {}
 
@@ -83,19 +85,21 @@ iconColor2: string = 'white';
         if (player1) {
             player1.style.backgroundColor = color;
             this.textColor1 = textColor;
-            this.colorSave1 =textColor;
+            this.colorSave1 = textColor;
             this.iconColor1 = textColor;
+            this.vidaCambioTextColor1 = textColor;  // Actualizar el color del texto del contador temporal
         }
     } else {
         const player2 = document.querySelector('.player2') as HTMLElement;
         if (player2) {
             player2.style.backgroundColor = color;
             this.textColor2 = textColor;
-            this.colorSave2 =textColor;
+            this.colorSave2 = textColor;
             this.iconColor2 = textColor;
+            this.vidaCambioTextColor2 = textColor;  // Actualizar el color del texto del contador temporal
         }
     }
-}
+  }
 private handleLifeChange(jugador: number, change: number) {
   if (jugador === 1) {
     this.vidaCambioJugador1 += change;
@@ -107,7 +111,7 @@ private handleLifeChange(jugador: number, change: number) {
       if (vidaCambioElement) {
         vidaCambioElement.classList.remove('show-animation');
       }
-    }, 2000);
+    }, 500);
     // Mostrar la animación
     const vidaCambioElement = document.querySelector('.vidaCambioJugador1');
     if (vidaCambioElement) {
@@ -123,7 +127,7 @@ const vidaCambioElement = document.querySelector('.vidaCambioJugador1');
 if (vidaCambioElement) {
   vidaCambioElement.classList.remove('show-animation');
 }
-    }, 2000);
+    }, 500);
    // Mostrar la animación
    const vidaCambioElement = document.querySelector('.vidaCambioJugador1');
    if (vidaCambioElement) {
