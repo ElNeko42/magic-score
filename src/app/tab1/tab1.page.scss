@@ -29,6 +29,10 @@
 
 .player1 {
   transform: rotate(180deg);
+  background-color: #FFFFFF;
+}
+.player2 {
+  background-color: #000000;
 }
 .player1, .player2 {
   background-image: url('../imagenes/diagmonds.png');

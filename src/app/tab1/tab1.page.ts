@@ -84,19 +84,13 @@ vidaCambioTextColor2: string = 'white';
         const player1 = document.querySelector('.player1') as HTMLElement;
         if (player1) {
             player1.style.backgroundColor = color;
-            this.textColor1 = textColor;
-            this.colorSave1 = textColor;
-            this.iconColor1 = textColor;
-            this.vidaCambioTextColor1 = textColor;  // Actualizar el color del texto del contador temporal
+           
         }
     } else {
         const player2 = document.querySelector('.player2') as HTMLElement;
         if (player2) {
             player2.style.backgroundColor = color;
-            this.textColor2 = textColor;
-            this.colorSave2 = textColor;
-            this.iconColor2 = textColor;
-            this.vidaCambioTextColor2 = textColor;  // Actualizar el color del texto del contador temporal
+          
         }
     }
   }
