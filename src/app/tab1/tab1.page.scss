@@ -97,3 +97,11 @@
   font-size: 24px;  // Tamaño del ícono
   margin-top: 10px;  // Espacio superior para separarlo de las vidas
 }
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: normal;
+}

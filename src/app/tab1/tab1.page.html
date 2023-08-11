@@ -8,11 +8,12 @@
       </div>
       <div *ngIf="!mostrarColoresJugador1" class="life-container">
         <ion-button (click)="disminuirVida(1)" slot="start">-</ion-button>
+        <div class="flex-container" >  
         <ion-label class="life" [class.life-zero]="vidaJugador1 === 0">{{ vidaJugador1 }}</ion-label>
+        <ion-icon *ngIf="!mostrarColoresJugador1" name="heart" class="heart-icon"></ion-icon>
+        </div>
         <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
       </div>
-      <!-- Ícono del corazón -->
-      <ion-icon *ngIf="!mostrarColoresJugador1" name="heart" class="heart-icon"></ion-icon>
       <app-colores *ngIf="mostrarColoresJugador1" (selectedColor)="changePlayerColor(1, $event)"></app-colores>
       <!-- Footer del Jugador 1 -->
       <app-player-footer *ngIf="!mostrarColoresJugador1"></app-player-footer>
@@ -29,11 +30,12 @@
       </div>
       <div *ngIf="!mostrarColoresJugador2" class="life-container">
         <ion-button (click)="disminuirVida(2)" slot="start">-</ion-button>
-        <ion-label class="life" [class.life-zero]="vidaJugador2 === 0">{{ vidaJugador2 }}</ion-label>
+        <div class="flex-container" >  
+          <ion-label class="life" [class.life-zero]="vidaJugador2 === 0">{{ vidaJugador2 }}</ion-label>
+          <ion-icon *ngIf="!mostrarColoresJugador2" name="heart" class="heart-icon"></ion-icon>
+        </div>
         <ion-button (click)="aumentarVida(2)" slot="end">+</ion-button>
       </div>
-      <!-- Ícono del corazón -->
-      <ion-icon *ngIf="!mostrarColoresJugador2" name="heart" class="heart-icon"></ion-icon>
       <app-colores *ngIf="mostrarColoresJugador2" (selectedColor)="changePlayerColor(2, $event)"></app-colores>
       <!-- Footer del Jugador 2 -->
       <app-player-footer *ngIf="!mostrarColoresJugador2"></app-player-footer>
