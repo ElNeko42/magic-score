@@ -97,6 +97,11 @@
   font-size: 24px;  // Tamaño del ícono
   margin-top: 10px;  // Espacio superior para separarlo de las vidas
 }
+.edh-icon {
+  position: relative;
+  width:  20px;  // Tamaño del ícono
+  margin-top: 10px;  // Espacio superior para separarlo de las vidas
+}
 .flex-container {
   display: flex;
   flex-direction: column;

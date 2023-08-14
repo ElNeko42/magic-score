@@ -16,6 +16,8 @@
           <!-- Contador de Comandante -->
           <ion-label *ngIf="selectedCounterJugador1 === 'edh'" class="life"[class.life-zero]="contadoresJugador1.edh == 21">{{ contadoresJugador1.edh }}</ion-label>
           <ion-icon *ngIf="selectedCounterJugador1 === 'life'" name="heart" class="heart-icon"></ion-icon>
+          <img *ngIf="selectedCounterJugador1 === 'edh'" name="edh" class="edh-icon" src="../../assets/icon/edh.png" alt="EDH Icon">
+          <img *ngIf="selectedCounterJugador1 === 'poison'" name="poison" class="edh-icon" src="../../assets/icon/poison.png" alt="poison Icon">
         </div>
         <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
       </div>
@@ -43,6 +45,10 @@
       <!-- Contador de Comandante -->
       <ion-label *ngIf="selectedCounter2 === 'edh'" class="life"[class.life-zero]="contadoresJugador2.edh == 21">{{ contadoresJugador2.edh }}</ion-label>
       <ion-icon *ngIf="selectedCounter2 === 'life'" name="heart" class="heart-icon"></ion-icon>
+      <img *ngIf="selectedCounter2 === 'edh'" name="edh" class="edh-icon" src="../../assets/icon/edh.png" alt="EDH Icon">
+      <img *ngIf="selectedCounter2 === 'poison'" name="poison" class="edh-icon" src="../../assets/icon/poison.png" alt="poison Icon">
+
+
     </div>
     <ion-button (click)="aumentarVida(2)" slot="end">+</ion-button>
   </div>
