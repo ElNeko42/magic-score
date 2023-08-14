@@ -12,9 +12,9 @@
           <!-- Contador de Vida -->
           <ion-label *ngIf="selectedCounterJugador1 === 'life'" class="life" [class.life-zero]="vidaJugador1 <= 0">{{ vidaJugador1 }}</ion-label>
           <!-- Contador de Veneno -->
-          <ion-label *ngIf="selectedCounterJugador1 === 'poison'" class="life">{{ contadoresJugador1.poison }}</ion-label>
+          <ion-label *ngIf="selectedCounterJugador1 === 'poison'" class="life"[class.life-zero]="contadoresJugador1.poison == 10">{{ contadoresJugador1.poison }}</ion-label>
           <!-- Contador de Comandante -->
-          <ion-label *ngIf="selectedCounterJugador1 === 'edh'" class="life">{{ contadoresJugador1.edh }}</ion-label>
+          <ion-label *ngIf="selectedCounterJugador1 === 'edh'" class="life"[class.life-zero]="contadoresJugador1.edh == 21">{{ contadoresJugador1.edh }}</ion-label>
           <ion-icon *ngIf="selectedCounterJugador1 === 'life'" name="heart" class="heart-icon"></ion-icon>
         </div>
         <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
@@ -39,9 +39,9 @@
       <!-- Contador de Vida -->
       <ion-label *ngIf="selectedCounter2 === 'life'" class="life" [class.life-zero]="vidaJugador2 <= 0">{{ vidaJugador2 }}</ion-label>
       <!-- Contador de Veneno -->
-      <ion-label *ngIf="selectedCounter2 === 'poison'" class="life">{{ contadoresJugador2.poison }}</ion-label>
+      <ion-label *ngIf="selectedCounter2 === 'poison'" class="life"[class.life-zero]="contadoresJugador2.poison == 10">{{ contadoresJugador2.poison }}</ion-label>
       <!-- Contador de Comandante -->
-      <ion-label *ngIf="selectedCounter2 === 'edh'" class="life">{{ contadoresJugador2.edh }}</ion-label>
+      <ion-label *ngIf="selectedCounter2 === 'edh'" class="life"[class.life-zero]="contadoresJugador2.edh == 21">{{ contadoresJugador2.edh }}</ion-label>
       <ion-icon *ngIf="selectedCounter2 === 'life'" name="heart" class="heart-icon"></ion-icon>
     </div>
     <ion-button (click)="aumentarVida(2)" slot="end">+</ion-button>

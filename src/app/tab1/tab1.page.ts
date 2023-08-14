@@ -78,8 +78,18 @@ selectedCounter2: 'life' | 'poison' | 'edh' = 'life';
         }
       } else if (counterType === 'poison') {
         this.contadoresJugador1.poison += change;
+        if (this.contadoresJugador1.poison < 0) {
+          this.contadoresJugador1.poison = 0;
+        } else if (this.contadoresJugador1.poison > 10) {
+          this.contadoresJugador1.poison = 10;
+        }
       } else if (counterType === 'edh') {
         this.contadoresJugador1.edh += change;
+        if (this.contadoresJugador1.edh < 0) {
+          this.contadoresJugador1.edh = 0;
+        } else if (this.contadoresJugador1.edh > 21) {
+          this.contadoresJugador1.edh = 21;
+        }
       }
       this.handleLifeChange(jugador, change);
     } else {
@@ -92,12 +102,23 @@ selectedCounter2: 'life' | 'poison' | 'edh' = 'life';
         }
       } else if (counterType === 'poison') {
         this.contadoresJugador2.poison += change;
+        if (this.contadoresJugador2.poison < 0) {
+          this.contadoresJugador2.poison = 0;
+        } else if (this.contadoresJugador2.poison > 10) {
+          this.contadoresJugador2.poison = 10;
+        }
       } else if (counterType === 'edh') {
         this.contadoresJugador2.edh += change;
+        if (this.contadoresJugador2.edh < 0) {
+          this.contadoresJugador2.edh = 0;
+        } else if (this.contadoresJugador2.edh > 21) {
+          this.contadoresJugador2.edh = 21;
+        }
       }
       this.handleLifeChange(jugador, change);
     }
   }
+  
 
   toggleColores(jugador: number) {
     if (jugador === 1) {
