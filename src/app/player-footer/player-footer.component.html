@@ -1,14 +1,17 @@
 <div class="footer-container">
-  <div class="counter">
-    <label>Veneno:</label>
-    <select [(ngModel)]="veneno">
-      <option *ngFor="let num of counterOptions" [value]="num">{{ num }}</option>
-    </select>
+  <!-- Icono de veneno -->
+  <div *ngIf="selectedCounter === 'life'" class="icon-container" (click)="selectCounter('poison')">
+    <img src="../../assets/icon/poison.png" alt="Poison Icon">
   </div>
-  <div class="counter">
-    <label>Daño Comandante:</label>
-    <select [(ngModel)]="danoComandante">
-      <option *ngFor="let num of counterOptions" [value]="num">{{ num }}</option>
-    </select>
+
+  <!-- Icono de comandante -->
+  <div *ngIf="selectedCounter === 'life'" class="icon-container" (click)="selectCounter('edh')">
+    <img src="../../assets/icon/edh.png" alt="EDH Icon">
+  </div>
+
+
+  <!-- Icono de volver -->
+  <div *ngIf="selectedCounter !== 'life'" class="icon-container" (click)="selectCounter('life')">
+    <ion-icon name="return-up-back"></ion-icon>
   </div>
 </div>

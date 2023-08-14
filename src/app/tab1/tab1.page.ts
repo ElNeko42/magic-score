@@ -35,41 +35,69 @@ iconColor1: string = 'white';
 iconColor2: string = 'white';
 vidaCambioTextColor1: string = 'white';
 vidaCambioTextColor2: string = 'white';
+contadoresJugador1 = {
+  life: 20,
+  poison: 0,
+  edh: 0
+};
+contadoresJugador2 = {
+  life: 20,
+  poison: 0,
+  edh: 0
+};
+selectedCounterJugador1: 'life' | 'poison' | 'edh' = 'life';
+selectedCounter2: 'life' | 'poison' | 'edh' = 'life';
+
 
   constructor() {}
 
   aumentarVida(jugador: number) {
     if (jugador === 1) {
-      this.vidaJugador1++;
-      if (this.vidaJugador1 >= 1) {
-        this.textColor1 = this.colorSave1;
-      }
-      this.handleLifeChange(jugador, 1);
+      this.actualizarContador(jugador, this.selectedCounterJugador1, 1);
     } else {
-      this.vidaJugador2++;
-      if (this.vidaJugador2 >= 1) {
-        this.textColor2 = this.colorSave2;
-      }
-      this.handleLifeChange(jugador, 1);
+      this.actualizarContador(jugador, this.selectedCounter2, 1);
     }
   }
   
   disminuirVida(jugador: number) {
     if (jugador === 1) {
-      this.vidaJugador1--;
-      if (this.vidaJugador1 <= 0) {
-        this.textColor1 = 'red';
-      }
-      this.handleLifeChange(jugador, -1);
-    } else if (jugador === 2) {
-      this.vidaJugador2--;
-      if (this.vidaJugador2 <= 0) {
-        this.textColor2 = 'red';
-      }
-      this.handleLifeChange(jugador, -1);
+      this.actualizarContador(jugador, this.selectedCounterJugador1, -1);
+    } else {
+      this.actualizarContador(jugador, this.selectedCounter2, -1);
     }
   }
-
+  
+  actualizarContador(jugador: number, counterType: 'life' | 'poison' | 'edh', change: number) {
+    if (jugador === 1) {
+      if (counterType === 'life') {
+        this.vidaJugador1 += change;
+        if (this.vidaJugador1 <= 0) {
+          this.textColor1 = 'red';
+        } else {
+          this.textColor1 = this.colorSave1;
+        }
+      } else if (counterType === 'poison') {
+        this.contadoresJugador1.poison += change;
+      } else if (counterType === 'edh') {
+        this.contadoresJugador1.edh += change;
+      }
+      this.handleLifeChange(jugador, change);
+    } else {
+      if (counterType === 'life') {
+        this.vidaJugador2 += change;
+        if (this.vidaJugador2 <= 0) {
+          this.textColor2 = 'red';
+        } else {
+          this.textColor2 = this.colorSave2;
+        }
+      } else if (counterType === 'poison') {
+        this.contadoresJugador2.poison += change;
+      } else if (counterType === 'edh') {
+        this.contadoresJugador2.edh += change;
+      }
+      this.handleLifeChange(jugador, change);
+    }
+  }
 
   toggleColores(jugador: number) {
     if (jugador === 1) {
@@ -128,6 +156,13 @@ if (vidaCambioElement) {
      vidaCambioElement.classList.add('show-animation');
    } else {
    }
+  }
+}
+handleCounterChange(event: {jugador: number, counterType: 'life' | 'poison' | 'edh'}) {
+  if (event.jugador === 1) {
+    this.selectedCounterJugador1 = event.counterType;
+  } else if (event.jugador === 2) {
+    this.selectedCounter2 = event.counterType;
   }
 }
 

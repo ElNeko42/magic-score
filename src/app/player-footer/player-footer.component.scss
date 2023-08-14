@@ -1,15 +1,27 @@
 .footer-container {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    align-items: center;
   }
   
-  .counter {
+  .icon-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);  // Transparencia
     display: flex;
     align-items: center;
+    justify-content: center;
+  }
   
-    label {
-      margin-right: 10px;
-    }
+  .icon-container img {
+    width: 30px;  // Ajusta el tamaño aquí
+    height: auto;
+    color: white;
+  }
+  
+  .counter-text {
+    flex-grow: 1;
+    text-align: center;
   }
   
