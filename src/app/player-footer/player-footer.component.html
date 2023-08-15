@@ -8,7 +8,10 @@
   <div *ngIf="selectedCounter === 'life'" class="icon-container" (click)="selectCounter('edh')">
     <img src="../../assets/icon/edh.png" alt="EDH Icon">
   </div>
-
+   <!-- Icono de comandante -->
+  <div *ngIf="selectedCounter === 'life'" class="icon-container" (click)="selectCounter('energy')">
+    <img src="../../assets/icon/energi.png" alt="energi Icon">
+  </div>
 
   <!-- Icono de volver -->
   <div *ngIf="selectedCounter !== 'life'" class="icon-container" (click)="selectCounter('life')">

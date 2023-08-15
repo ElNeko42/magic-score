@@ -38,15 +38,18 @@ vidaCambioTextColor2: string = 'white';
 contadoresJugador1 = {
   life: 20,
   poison: 0,
-  edh: 0
+  edh: 0,
+  energy: 0 
 };
 contadoresJugador2 = {
   life: 20,
   poison: 0,
-  edh: 0
+  edh: 0,
+  energy: 0 
 };
-selectedCounterJugador1: 'life' | 'poison' | 'edh' = 'life';
-selectedCounter2: 'life' | 'poison' | 'edh' = 'life';
+selectedCounterJugador1: 'life' | 'poison' | 'edh' | 'energy' = 'life'; 
+selectedCounter2: 'life' | 'poison' | 'edh' | 'energy' = 'life'; 
+
 
 
   constructor() {}
@@ -67,7 +70,7 @@ selectedCounter2: 'life' | 'poison' | 'edh' = 'life';
     }
   }
   
-  actualizarContador(jugador: number, counterType: 'life' | 'poison' | 'edh', change: number) {
+  actualizarContador(jugador: number, counterType: 'life' | 'poison' | 'edh' | 'energy', change: number) {
     if (jugador === 1) {
       if (counterType === 'life') {
         this.vidaJugador1 += change;
@@ -114,7 +117,15 @@ selectedCounter2: 'life' | 'poison' | 'edh' = 'life';
         } else if (this.contadoresJugador2.edh > 21) {
           this.contadoresJugador2.edh = 21;
         }
+      }else if (counterType === 'energy') {
+        if (jugador === 1) {
+          this.contadoresJugador1.energy += change;
+        } else {
+          this.contadoresJugador2.energy += change;
+          
+        }
       }
+      
       this.handleLifeChange(jugador, change);
     }
   }
@@ -179,7 +190,7 @@ if (vidaCambioElement) {
    }
   }
 }
-handleCounterChange(event: {jugador: number, counterType: 'life' | 'poison' | 'edh'}) {
+handleCounterChange(event: {jugador: number, counterType: 'life' | 'poison' | 'edh' | 'energy'}) { 
   if (event.jugador === 1) {
     this.selectedCounterJugador1 = event.counterType;
   } else if (event.jugador === 2) {

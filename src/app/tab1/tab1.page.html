@@ -15,9 +15,13 @@
           <ion-label *ngIf="selectedCounterJugador1 === 'poison'" class="life"[class.life-zero]="contadoresJugador1.poison == 10">{{ contadoresJugador1.poison }}</ion-label>
           <!-- Contador de Comandante -->
           <ion-label *ngIf="selectedCounterJugador1 === 'edh'" class="life"[class.life-zero]="contadoresJugador1.edh == 21">{{ contadoresJugador1.edh }}</ion-label>
+           <!-- Contador de energuia -->
+           <ion-label *ngIf="selectedCounterJugador1 === 'energy'" class="life">{{ contadoresJugador1.energy }}</ion-label>
           <ion-icon *ngIf="selectedCounterJugador1 === 'life'" name="heart" class="heart-icon"></ion-icon>
           <img *ngIf="selectedCounterJugador1 === 'edh'" name="edh" class="edh-icon" src="../../assets/icon/edh.png" alt="EDH Icon">
           <img *ngIf="selectedCounterJugador1 === 'poison'" name="poison" class="edh-icon" src="../../assets/icon/poison.png" alt="poison Icon">
+          <img *ngIf="selectedCounterJugador1 === 'energy'" name="energy" class="edh-icon" src="../../assets/icon/energi.png" alt="poison Icon">
+
         </div>
         <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
       </div>
@@ -44,9 +48,12 @@
       <ion-label *ngIf="selectedCounter2 === 'poison'" class="life"[class.life-zero]="contadoresJugador2.poison == 10">{{ contadoresJugador2.poison }}</ion-label>
       <!-- Contador de Comandante -->
       <ion-label *ngIf="selectedCounter2 === 'edh'" class="life"[class.life-zero]="contadoresJugador2.edh == 21">{{ contadoresJugador2.edh }}</ion-label>
+       <!-- Contador de energia -->
+       <ion-label *ngIf="selectedCounter2 === 'energy'" class="life">{{ contadoresJugador2.energy }}</ion-label>
       <ion-icon *ngIf="selectedCounter2 === 'life'" name="heart" class="heart-icon"></ion-icon>
       <img *ngIf="selectedCounter2 === 'edh'" name="edh" class="edh-icon" src="../../assets/icon/edh.png" alt="EDH Icon">
       <img *ngIf="selectedCounter2 === 'poison'" name="poison" class="edh-icon" src="../../assets/icon/poison.png" alt="poison Icon">
+      <img *ngIf="selectedCounter2=== 'energy'" name="energy" class="edh-icon" src="../../assets/icon/energi.png" alt="poison Icon">
 
 
     </div>

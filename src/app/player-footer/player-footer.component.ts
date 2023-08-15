@@ -5,20 +5,26 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './player-footer.component.html',
   styleUrls: ['./player-footer.component.scss']
 })
+// player-footer.component.ts
+
 export class PlayerFooterComponent implements OnInit {
 
-  @Input() jugador!: number;
-  selectedCounter: 'life' | 'poison' | 'edh' = 'life';
+  selectedCounter: 'life' | 'poison' | 'edh' | 'energy' = 'life'; 
 
-  @Output() counterChanged = new EventEmitter<{jugador: number, counterType: 'life' | 'poison' | 'edh'}>();
+  // Emitir solo el tipo de contador
+  @Output() counterChanged = new EventEmitter<{jugador: number, counterType: 'life' | 'poison' | 'edh' | 'energy'}>();
+  @Input() jugador!: number;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  selectCounter(counter: 'life' | 'poison' | 'edh') {
-    this.selectedCounter = counter;
-    this.counterChanged.emit({jugador: this.jugador, counterType: this.selectedCounter}); // Modifica esta línea
+
+  selectCounter(counter: 'life' | 'poison' | 'edh' | 'energy') {
+    this.selectedCounter = counter;  // Añade esta línea
+    this.counterChanged.emit({jugador: this.jugador, counterType: counter});
   }
+  
 }
+
