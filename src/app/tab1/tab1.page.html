@@ -64,7 +64,15 @@
     </div>
 
     <!-- Barra horizontal -->
-    <div class="divider"></div>
+    <div class="divider" [class.open]="isDropdownOpen">
+      <ion-icon name="arrow-down" class="dropdown-icon" (click)="toggleDropdown()"></ion-icon>
+      <div *ngIf="showDropdown" class="dropdown-content">
+        <ion-icon name="arrow-down" class="dropdown-icon" (click)="toggleDropdown()"></ion-icon>
+        <ion-icon name="arrow-down" class="dropdown-icon" (click)="toggleDropdown()"></ion-icon>
+        <ion-icon name="arrow-down" class="dropdown-icon" (click)="toggleDropdown()"></ion-icon>
+
+      </div>
+    </div>
 
     <!-- Jugador 2 -->
     <div class="player player2">

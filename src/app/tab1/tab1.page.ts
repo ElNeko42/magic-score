@@ -51,7 +51,8 @@ export class Tab1Page {
   selectedCounter2: 'life' | 'poison' | 'edh' | 'energy' = 'life';
   mostrarCalculadoraJugador1: boolean = false;
   mostrarCalculadoraJugador2: boolean = false;
-
+  showDropdown = false;
+  isDropdownOpen = false;
 
 
   constructor() { }
@@ -224,5 +225,8 @@ export class Tab1Page {
     this.mostrarCalculadoraJugador1 = false;
     this.mostrarCalculadoraJugador2 = false;
   }
-
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+  
 }
