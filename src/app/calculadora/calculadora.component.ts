@@ -6,10 +6,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./calculadora.component.scss'],
 })
 export class CalculadoraComponent implements OnInit {
-  @Input() vidaActual: number=0;
+  @Input() vidaActual: number = 0;
   @Output() nuevaVida = new EventEmitter<number>();
   inputValue: string = '';
-  
+
 
   constructor() { }
 
@@ -19,11 +19,11 @@ export class CalculadoraComponent implements OnInit {
 
   addToInput(value: string): void {
     if (this.inputValue === this.vidaActual.toString()) {
-        this.inputValue = value;
+      this.inputValue = value;
     } else {
-        this.inputValue += value;
+      this.inputValue += value;
     }
-}
+  }
 
 
   calculate(): void {
@@ -43,13 +43,13 @@ export class CalculadoraComponent implements OnInit {
     const result = this.vidaActual + parseInt(this.inputValue, 10);
     this.inputValue = result.toString();
     this.nuevaVida.emit(result); // Emitimos el nuevo valor
-}
+  }
 
-subtractLife(): void {
+  subtractLife(): void {
     // Convertimos la entrada a un número y restamos de la vida actual
     const result = this.vidaActual - parseInt(this.inputValue, 10);
     this.inputValue = result.toString();
     this.nuevaVida.emit(result); // Emitimos el nuevo valor
-}
+  }
 
 }

@@ -7,9 +7,9 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { OpcionesComponent } from '../modales/opciones/opciones.component';
-import { ColoresComponent } from '../colores/colores.component'; 
-import{PlayerFooterComponent} from '../player-footer/player-footer.component'
-import{CalculadoraComponent} from '../calculadora/calculadora.component'
+import { ColoresComponent } from '../colores/colores.component';
+import { PlayerFooterComponent } from '../player-footer/player-footer.component'
+import { CalculadoraComponent } from '../calculadora/calculadora.component'
 
 
 @NgModule({
@@ -19,13 +19,13 @@ import{CalculadoraComponent} from '../calculadora/calculadora.component'
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
-    
+
   ],
   declarations: [
-    Tab1Page, 
+    Tab1Page,
     OpcionesComponent,
     ColoresComponent,
     PlayerFooterComponent,
-    CalculadoraComponent ],
+    CalculadoraComponent],
 })
-export class Tab1PageModule {}
+export class Tab1PageModule { }
