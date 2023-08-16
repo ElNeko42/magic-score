@@ -34,7 +34,7 @@
       </div>
 
       <!-- Componente de la calculadora -->
-      <app-calculadora *ngIf="mostrarCalculadoraJugador1" (someOutput)="handleSomeOutput($event)"></app-calculadora>
+      <app-calculadora *ngIf="mostrarCalculadoraJugador1" [vidaActual]="vidaJugador1" (nuevaVida)="actualizarVida(1, $event)"></app-calculadora>
 
       <!-- Selector de colores -->
       <app-colores *ngIf="mostrarColoresJugador1 && !mostrarCalculadoraJugador1" (selectedColor)="changePlayerColor(1, $event)"></app-colores>
@@ -80,7 +80,7 @@
 
       <!-- Selector de colores del Jugador 2 -->
       <app-colores *ngIf="mostrarColoresJugador2 && !mostrarCalculadoraJugador2" (selectedColor)="changePlayerColor(2, $event)"></app-colores>
-      <app-calculadora *ngIf="mostrarCalculadoraJugador2" (someOutput)="handleSomeOutput($event)"></app-calculadora>
+      <app-calculadora *ngIf="mostrarCalculadoraJugador2" [vidaActual]="vidaJugador2" (nuevaVida)="actualizarVida(2, $event)"></app-calculadora>
 
       <!-- Footer del Jugador 2 -->
       <app-player-footer *ngIf="!mostrarColoresJugador2 && !mostrarCalculadoraJugador2" [jugador]="2" (counterChanged)="handleCounterChange($event)"></app-player-footer>

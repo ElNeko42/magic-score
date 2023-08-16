@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-calculadora',
@@ -7,26 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculadoraComponent implements OnInit {
   inputValue: string = '';
+  @Input() vidaActual: number = 0;
+  @Output() nuevaVida = new EventEmitter<number>();
 
   constructor() { }
 
-  ngOnInit(): void { }
-
+  ngOnInit(): void {
+    this.inputValue = this.vidaActual.toString();
+  }
 
   addToInput(value: string): void {
-    this.inputValue += value;
-  }
-  
-  calculate(): void {
-    try {
-      this.inputValue = eval(this.inputValue);
-    } catch (err) {
-      this.inputValue = 'Error';
+    if (this.inputValue === this.vidaActual.toString()) {
+      this.inputValue = '';
     }
+    // Evitamos agregar el signo + o - al inputValue
+    if (value !== '+' && value !== '-') {
+      this.inputValue += value;
+    }
+  }
+
+  addLife(): void {
+    const result = Number(this.inputValue);
+    this.nuevaVida.emit(this.vidaActual + result);
+  }
+
+  subtractLife(): void {
+    const result = Number(this.inputValue);
+    this.nuevaVida.emit(this.vidaActual - result);
   }
   
   clearInput(): void {
     this.inputValue = '';
   }
 }
-

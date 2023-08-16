@@ -213,6 +213,15 @@ toggleCalculadora(jugador: number): void {
 handleSomeOutput(event: any): void {
   // Lógica para manejar el evento de salida
 }
+actualizarVida(jugador: number, nuevaVida: number) {
+  if (jugador === 1) {
+      this.vidaJugador1 = nuevaVida;
+  } else if (jugador === 2) {
+      this.vidaJugador2 = nuevaVida;
+  }
+  this.mostrarCalculadoraJugador1 = false;
+  this.mostrarCalculadoraJugador2 = false;
+}
 
 
 }
