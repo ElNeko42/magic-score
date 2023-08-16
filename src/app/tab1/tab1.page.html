@@ -16,8 +16,10 @@
 
       <!-- Contadores y otros elementos -->
       <div *ngIf="!mostrarColoresJugador1 && !mostrarCalculadoraJugador1" class="life-container">
-        <ion-button (click)="disminuirVida(1)" slot="start">-</ion-button>
-        <div class="flex-container">
+        <label class="btn-wrapper" (click)="disminuirVida(1)">
+          <ion-button class="custom-btn"><ion-icon name="remove-outline"></ion-icon></ion-button>
+        </label>
+          <div class="flex-container">
           <!-- Contador de Vida -->
           <ion-label *ngIf="selectedCounterJugador1 === 'life'" class="life" [class.life-zero]="vidaJugador1 <= 0">{{ vidaJugador1 }}</ion-label>
           <!-- Contador de Veneno -->
@@ -31,8 +33,10 @@
           <img *ngIf="selectedCounterJugador1 === 'poison'" name="poison" class="edh-icon" src="../../assets/icon/poison.png" alt="poison Icon">
           <img *ngIf="selectedCounterJugador1 === 'energy'" name="energy" class="edh-icon" src="../../assets/icon/energi.png" alt="energy Icon">
         </div>
-        <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
-      </div>
+        <label class="btn-wrapper" (click)="aumentarVida(1)">
+          <ion-button class="custom-btn"><ion-icon name="add-outline"></ion-icon></ion-button>
+        </label>
+         </div>
 
       <!-- Componente de la calculadora -->
       <app-calculadora *ngIf="mostrarCalculadoraJugador1" [vidaActual]="vidaJugador1" (nuevaVida)="actualizarVida(1, $event)"></app-calculadora>
@@ -62,8 +66,9 @@
 
       <!-- Contadores y otros elementos -->
       <div *ngIf="!mostrarColoresJugador2 && !mostrarCalculadoraJugador2" class="life-container">
-        <ion-button (click)="disminuirVida(2)" slot="start">-</ion-button>
-        <div class="flex-container">
+        <label class="btn-wrapper" (click)="disminuirVida(2)">
+          <ion-button class="custom-btn"><ion-icon name="remove-outline"></ion-icon></ion-button>
+        </label>        <div class="flex-container">
           <!-- Contador de Vida -->
           <ion-label *ngIf="selectedCounter2 === 'life'" class="life" [class.life-zero]="vidaJugador2 <= 0">{{ vidaJugador2 }}</ion-label>
           <!-- Contador de Veneno -->
@@ -77,8 +82,10 @@
           <img *ngIf="selectedCounter2 === 'poison'" name="poison" class="edh-icon" src="../../assets/icon/poison.png" alt="poison Icon">
           <img *ngIf="selectedCounter2 === 'energy'" name="energy" class="edh-icon" src="../../assets/icon/energi.png" alt="energy Icon">
         </div>
-        <ion-button (click)="aumentarVida(2)" slot="end">+</ion-button>
-      </div>
+        <label class="btn-wrapper" (click)="aumentarVida(2)">
+          <ion-button class="custom-btn"><ion-icon name="add-outline"></ion-icon></ion-button>
+        </label>
+            </div>
 
       <!-- Selector de colores del Jugador 2 -->
       <app-colores *ngIf="mostrarColoresJugador2 && !mostrarCalculadoraJugador2" (selectedColor)="changePlayerColor(2, $event)"></app-colores>
