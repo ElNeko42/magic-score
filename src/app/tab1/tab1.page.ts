@@ -136,8 +136,10 @@ mostrarCalculadoraJugador2: boolean = false;
   toggleColores(jugador: number) {
     if (jugador === 1) {
       this.mostrarColoresJugador1 = !this.mostrarColoresJugador1;
+      this.mostrarCalculadoraJugador1=false
     } else {
       this.mostrarColoresJugador2 = !this.mostrarColoresJugador2;
+      this.mostrarCalculadoraJugador2=false
     }
   }
   changePlayerColor(player: number, color: string) {
@@ -222,6 +224,5 @@ actualizarVida(jugador: number, nuevaVida: number) {
   this.mostrarCalculadoraJugador1 = false;
   this.mostrarCalculadoraJugador2 = false;
 }
-
 
 }

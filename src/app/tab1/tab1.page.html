@@ -3,7 +3,8 @@
     <!-- Jugador 1 -->
     <div class="player player1">
       <div class="header">
-        <ion-icon name="ellipsis-vertical" class="options-icon" (click)="toggleColores(1)"></ion-icon>
+        <ion-icon *ngIf="!mostrarColoresJugador1" name="color-palette" class="options-icon" (click)="toggleColores(1)"></ion-icon>
+        <ion-icon *ngIf="mostrarColoresJugador1" name="return-up-back" class="options-icon" (click)="toggleColores(1)"></ion-icon>
 
         <!-- Icono de la calculadora o volver -->
         <ion-icon *ngIf="!mostrarCalculadoraJugador1" name="calculator" class="calculator-icon" (click)="toggleCalculadora(1)"></ion-icon>
@@ -50,10 +51,11 @@
     <div class="player player2">
       <div class="header">
         <!-- Icono de opciones -->
-        <ion-icon name="ellipsis-vertical" class="options-icon" (click)="toggleColores(2)"></ion-icon>
-        
+        <ion-icon *ngIf="!mostrarColoresJugador2" name="color-palette" class="options-icon" (click)="toggleColores(2)"></ion-icon>
+        <ion-icon *ngIf="mostrarColoresJugador2" name="return-up-back" class="options-icon" (click)="toggleColores(2)"></ion-icon>
+
         <!-- Cambio de vida -->
-        <div *ngIf="vidaCambioJugador2 !== 0" class="vida-cambio">{{ vidaCambioJugador2 > 0 ? '+' : '' }}{{ vidaCambioJugador2 }}</div>
+        <div *ngIf="vidaCambioJugador2 !== 0 && !mostrarCalculadoraJugador2" class="vida-cambio">{{ vidaCambioJugador2 > 0 ? '+' : '' }}{{ vidaCambioJugador2 }}</div>
         <ion-icon *ngIf="!mostrarCalculadoraJugador2" name="calculator" class="calculator-icon" (click)="toggleCalculadora(2)"></ion-icon>
         <ion-icon *ngIf="mostrarCalculadoraJugador2" name="return-up-back" class="calculator-icon" (click)="toggleCalculadora(2)"></ion-icon>
       </div>
