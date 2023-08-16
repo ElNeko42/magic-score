@@ -9,6 +9,8 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { OpcionesComponent } from '../modales/opciones/opciones.component';
 import { ColoresComponent } from '../colores/colores.component'; 
 import{PlayerFooterComponent} from '../player-footer/player-footer.component'
+import{CalculadoraComponent} from '../calculadora/calculadora.component'
+
 
 @NgModule({
   imports: [
@@ -23,6 +25,7 @@ import{PlayerFooterComponent} from '../player-footer/player-footer.component'
     Tab1Page, 
     OpcionesComponent,
     ColoresComponent,
-    PlayerFooterComponent ],
+    PlayerFooterComponent,
+    CalculadoraComponent ],
 })
 export class Tab1PageModule {}

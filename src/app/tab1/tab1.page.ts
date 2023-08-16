@@ -49,6 +49,8 @@ contadoresJugador2 = {
 };
 selectedCounterJugador1: 'life' | 'poison' | 'edh' | 'energy' = 'life'; 
 selectedCounter2: 'life' | 'poison' | 'edh' | 'energy' = 'life'; 
+mostrarCalculadoraJugador1: boolean = false;
+mostrarCalculadoraJugador2: boolean = false;
 
 
 
@@ -197,5 +199,20 @@ handleCounterChange(event: {jugador: number, counterType: 'life' | 'poison' | 'e
     this.selectedCounter2 = event.counterType;
   }
 }
+toggleCalculadora(jugador: number): void {
+  if (jugador === 1) {
+    this.mostrarCalculadoraJugador1 = !this.mostrarCalculadoraJugador1;
+    this.mostrarColoresJugador1 = false; // Asegurarse de que los colores no se muestren
+  }
+  else if (jugador === 2) {
+    this.mostrarCalculadoraJugador2 = !this.mostrarCalculadoraJugador2;
+    this.mostrarColoresJugador2 = false; // Asegurarse de que los colores no se muestren
+  }
+  // Puedes añadir lógica similar para otros jugadores si es necesario
+}
+handleSomeOutput(event: any): void {
+  // Lógica para manejar el evento de salida
+}
+
 
 }

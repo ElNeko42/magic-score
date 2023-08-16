@@ -4,12 +4,18 @@
     <div class="player player1">
       <div class="header">
         <ion-icon name="ellipsis-vertical" class="options-icon" (click)="toggleColores(1)"></ion-icon>
-        <div *ngIf="vidaCambioJugador1 !== 0" class="vida-cambio">{{ vidaCambioJugador1 > 0 ? '+' : '' }}{{ vidaCambioJugador1 }}</div>
+
+        <!-- Icono de la calculadora o volver -->
+        <ion-icon *ngIf="!mostrarCalculadoraJugador1" name="calculator" class="calculator-icon" (click)="toggleCalculadora(1)"></ion-icon>
+        <ion-icon *ngIf="mostrarCalculadoraJugador1" name="return-up-back" class="calculator-icon" (click)="toggleCalculadora(1)"></ion-icon>
+        
+        <!-- Cambio de vida -->
+        <div *ngIf="vidaCambioJugador1 !== 0 && !mostrarCalculadoraJugador1" class="vida-cambio">{{ vidaCambioJugador1 > 0 ? '+' : '' }}{{ vidaCambioJugador1 }}</div>
       </div>
-      <div *ngIf="!mostrarColoresJugador1" class="life-container">
-        <label class="btn-wrapper" (click)="disminuirVida(1)">
-          <ion-button class="custom-btn"><ion-icon name="remove-outline"></ion-icon></ion-button>
-        </label>
+
+      <!-- Contadores y otros elementos -->
+      <div *ngIf="!mostrarColoresJugador1 && !mostrarCalculadoraJugador1" class="life-container">
+        <ion-button (click)="disminuirVida(1)" slot="start">-</ion-button>
         <div class="flex-container">
           <!-- Contador de Vida -->
           <ion-label *ngIf="selectedCounterJugador1 === 'life'" class="life" [class.life-zero]="vidaJugador1 <= 0">{{ vidaJugador1 }}</ion-label>
@@ -24,13 +30,17 @@
           <img *ngIf="selectedCounterJugador1 === 'poison'" name="poison" class="edh-icon" src="../../assets/icon/poison.png" alt="poison Icon">
           <img *ngIf="selectedCounterJugador1 === 'energy'" name="energy" class="edh-icon" src="../../assets/icon/energi.png" alt="energy Icon">
         </div>
-        <label class="btn-wrapper" (click)="aumentarVida(1)">
-          <ion-button class="custom-btn"><ion-icon name="add-outline"></ion-icon></ion-button>
-        </label>
+        <ion-button (click)="aumentarVida(1)" slot="end">+</ion-button>
       </div>
-      <app-colores *ngIf="mostrarColoresJugador1" (selectedColor)="changePlayerColor(1, $event)"></app-colores>
+
+      <!-- Componente de la calculadora -->
+      <app-calculadora *ngIf="mostrarCalculadoraJugador1" (someOutput)="handleSomeOutput($event)"></app-calculadora>
+
+      <!-- Selector de colores -->
+      <app-colores *ngIf="mostrarColoresJugador1 && !mostrarCalculadoraJugador1" (selectedColor)="changePlayerColor(1, $event)"></app-colores>
+
       <!-- Footer del Jugador 1 -->
-      <app-player-footer [jugador]="1" *ngIf="!mostrarColoresJugador1" (counterChanged)="handleCounterChange($event)"></app-player-footer>
+      <app-player-footer *ngIf="!mostrarColoresJugador1 && !mostrarCalculadoraJugador1" [jugador]="1" (counterChanged)="handleCounterChange($event)"></app-player-footer>
     </div>
 
     <!-- Barra horizontal -->
@@ -39,13 +49,18 @@
     <!-- Jugador 2 -->
     <div class="player player2">
       <div class="header">
+        <!-- Icono de opciones -->
         <ion-icon name="ellipsis-vertical" class="options-icon" (click)="toggleColores(2)"></ion-icon>
+        
+        <!-- Cambio de vida -->
         <div *ngIf="vidaCambioJugador2 !== 0" class="vida-cambio">{{ vidaCambioJugador2 > 0 ? '+' : '' }}{{ vidaCambioJugador2 }}</div>
+        <ion-icon *ngIf="!mostrarCalculadoraJugador2" name="calculator" class="calculator-icon" (click)="toggleCalculadora(2)"></ion-icon>
+        <ion-icon *ngIf="mostrarCalculadoraJugador2" name="return-up-back" class="calculator-icon" (click)="toggleCalculadora(2)"></ion-icon>
       </div>
-      <div *ngIf="!mostrarColoresJugador2" class="life-container">
-        <label class="btn-wrapper" (click)="disminuirVida(2)">
-          <ion-button class="custom-btn"><ion-icon name="remove-outline"></ion-icon></ion-button>
-        </label>
+
+      <!-- Contadores y otros elementos -->
+      <div *ngIf="!mostrarColoresJugador2 && !mostrarCalculadoraJugador2" class="life-container">
+        <ion-button (click)="disminuirVida(2)" slot="start">-</ion-button>
         <div class="flex-container">
           <!-- Contador de Vida -->
           <ion-label *ngIf="selectedCounter2 === 'life'" class="life" [class.life-zero]="vidaJugador2 <= 0">{{ vidaJugador2 }}</ion-label>
@@ -60,13 +75,15 @@
           <img *ngIf="selectedCounter2 === 'poison'" name="poison" class="edh-icon" src="../../assets/icon/poison.png" alt="poison Icon">
           <img *ngIf="selectedCounter2 === 'energy'" name="energy" class="edh-icon" src="../../assets/icon/energi.png" alt="energy Icon">
         </div>
-        <label class="btn-wrapper" (click)="aumentarVida(2)">
-          <ion-button class="custom-btn"><ion-icon name="add-outline"></ion-icon></ion-button>
-        </label>
+        <ion-button (click)="aumentarVida(2)" slot="end">+</ion-button>
       </div>
-      <app-colores *ngIf="mostrarColoresJugador2" (selectedColor)="changePlayerColor(2, $event)"></app-colores>
+
+      <!-- Selector de colores del Jugador 2 -->
+      <app-colores *ngIf="mostrarColoresJugador2 && !mostrarCalculadoraJugador2" (selectedColor)="changePlayerColor(2, $event)"></app-colores>
+      <app-calculadora *ngIf="mostrarCalculadoraJugador2" (someOutput)="handleSomeOutput($event)"></app-calculadora>
+
       <!-- Footer del Jugador 2 -->
-      <app-player-footer [jugador]="2" *ngIf="!mostrarColoresJugador2" (counterChanged)="handleCounterChange($event)"></app-player-footer>
+      <app-player-footer *ngIf="!mostrarColoresJugador2 && !mostrarCalculadoraJugador2" [jugador]="2" (counterChanged)="handleCounterChange($event)"></app-player-footer>
     </div>
   </div>
 </ion-content>
