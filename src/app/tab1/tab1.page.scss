@@ -66,7 +66,9 @@
   color: white;
 }
 
-.divider {
+.divider {  display: flex;
+  justify-content: center; // Centra los íconos horizontalmente
+  align-items: center; // Centra los íconos verticalmente
   height: 2px;
   background-color: #ccc;
   width: 100%;
@@ -97,17 +99,19 @@
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; // Centra los íconos verticalmente
+  margin-left: 1em;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%; /* o el ancho que desees */
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width: 80%;
+  // background-color: #f9f9f9;
   z-index: 1;
 }
 
+.dropdown-content ion-icon {
+  color: red; // o cualquier otro color que contraste con el fondo
+}
 .vida-cambio {
   position: absolute;
   top: 50%; // Centrado vertical

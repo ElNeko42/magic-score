@@ -227,6 +227,7 @@ export class Tab1Page {
   }
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
+    this.showDropdown= !this.showDropdown;
   }
   
 }
