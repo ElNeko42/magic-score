@@ -66,20 +66,29 @@
   color: white;
 }
 
-.divider {  display: flex;
+.divider {
+  display: flex;
   justify-content: center; // Centra los íconos horizontalmente
   align-items: center; // Centra los íconos verticalmente
   height: 2px;
-  background-color: #ccc;
+  border-color: #ccc;
+  border-radius: 2px;
+  background-image: linear-gradient(to bottom, #121317, #1a1d21, #22262c, #2a3037, #323b42);
   width: 100%;
-  position: relative;  transition: height 0.3s ease; /* animación suave */
+  position: relative;
+  transition: height 0.3s ease;
+  /* animación suave */
 }
+
 .divider.open {
-  height: 50px; /* altura cuando esté desplegada */
+  height: 50px;
+  /* altura cuando esté desplegada */
 
 }
+
 .dropdown-icon {
-  transition: transform 0.3s ease; /* animación suave para el movimiento del ícono */
+  transition: transform 0.3s ease;
+  /* animación suave para el movimiento del ícono */
   transform: translate(-50%, 0);
   margin: 0;
   padding: 0;
@@ -93,6 +102,7 @@
   cursor: pointer;
   color: #000;
 }
+
 .divider.open .dropdown-icon {
   transform: translate(-50%, -30px);
 
@@ -105,13 +115,13 @@
   margin-left: 1em;
   top: 100%;
   width: 80%;
-  // background-color: #f9f9f9;
   z-index: 1;
 }
 
 .dropdown-content ion-icon {
-  color: red; // o cualquier otro color que contraste con el fondo
+  color: white; 
 }
+
 .vida-cambio {
   position: absolute;
   top: 50%; // Centrado vertical

@@ -67,13 +67,31 @@
     <div class="divider" [class.open]="isDropdownOpen">
       <ion-icon name="arrow-down" class="dropdown-icon" (click)="toggleDropdown()"></ion-icon>
       <div *ngIf="showDropdown" class="dropdown-content">
-        <ion-icon name="people-outline" ></ion-icon> 
-        <ion-icon name="heart-outline" ></ion-icon> 
-        <ion-icon name="refresh-outline" ></ion-icon> 
-        <ion-icon name="dice-outline" ></ion-icon> 
-      </div>
-    </div>
-
+          <!-- Icono de personas -->
+          <div (click)="seleccionarVida({tipo: 'icono', valor: 'people-outline'})"*ngIf="!mostrarOpcionesVida">
+              <ion-icon name="people-outline"></ion-icon>
+          </div>
+          <!-- Icono de corazón -->
+          <div (click)="abrirOpcionesVida()" *ngIf="!mostrarOpcionesVida">
+              <ion-icon name="heart-outline"></ion-icon>
+          </div>
+          <!-- Icono de refrescar -->
+          <div (click)="seleccionarVida({tipo: 'icono', valor: 'refresh-outline'})"*ngIf="!mostrarOpcionesVida">
+              <ion-icon name="refresh-outline"></ion-icon>
+          </div>
+          <!-- Icono de dados -->
+          <div (click)="seleccionarVida({tipo: 'icono', valor: 'dice-outline'})"*ngIf="!mostrarOpcionesVida">
+              <ion-icon name="dice-outline"></ion-icon>
+          </div>
+          <!-- Opciones de vida -->
+          <div *ngIf="mostrarOpcionesVida" (click)="seleccionarVida({tipo: 'vida', valor: '20'})">20</div>
+          <div *ngIf="mostrarOpcionesVida" (click)="seleccionarVida({tipo: 'vida', valor: '30'})">30</div>
+          <div *ngIf="mostrarOpcionesVida" (click)="seleccionarVida({tipo: 'vida', valor: '40'})">40</div>
+          <ion-icon *ngIf="mostrarOpcionesVida" name="return-up-back" class="options-icon"
+          (click)="goBack()"></ion-icon>
+      </div>      
+  </div>
+  
     <!-- Jugador 2 -->
     <div class="player player2">
       <div class="header">

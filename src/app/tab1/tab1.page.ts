@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+interface Opcion {
+  tipo: string;
+  valor: string;
+}
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -53,6 +58,21 @@ export class Tab1Page {
   mostrarCalculadoraJugador2: boolean = false;
   showDropdown = false;
   isDropdownOpen = false;
+  opcionesPrincipales = [
+    { tipo: 'icono', valor: 'people-outline' },
+    { tipo: 'icono', valor: 'heart-outline' },
+    { tipo: 'icono', valor: 'refresh-outline' },
+    { tipo: 'icono', valor: 'dice-outline' }
+  ];
+  opcionesVida = [
+    { tipo: 'vida', valor: '20' },
+    { tipo: 'vida', valor: '30' },
+    { tipo: 'vida', valor: '40' },
+    { tipo: 'icono', valor: 'return-up-back' }
+  ];
+  opcionesActuales = this.opcionesPrincipales;
+  vidaSeleccionada: number = 20;
+  mostrarOpcionesVida: boolean = false;
 
 
   constructor() { }
@@ -227,7 +247,39 @@ export class Tab1Page {
   }
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
-    this.showDropdown= !this.showDropdown;
+    this.showDropdown = this.isDropdownOpen;
+    this.mostrarOpcionesVida=false;
   }
   
+  seleccionarVida(opcion: Opcion) {
+    if (opcion.tipo === 'vida') {
+      this.vidaSeleccionada = +opcion.valor;
+      this.vidaJugador1 = this.vidaSeleccionada;
+      this.vidaJugador2 = this.vidaSeleccionada;
+      this.opcionesActuales = this.opcionesPrincipales;
+      this.toggleDropdown()
+      this.mostrarOpcionesVida = false;
+
+    } else if (opcion.tipo === 'icono' && opcion.valor === 'return-up-back') {
+      this.opcionesActuales = this.opcionesPrincipales;
+      this.showDropdown = false; // Cierra el desplegable
+      this.mostrarOpcionesVida = false;
+      this.toggleDropdown()
+
+    }
+    this.mostrarOpcionesVida = false;
+    this.showDropdown = false; // Cierra el desplegable
+
+  }
+  abrirOpcionesVida() {
+    this.mostrarOpcionesVida = true;
+    this.showDropdown = true;
+}
+goBack() {
+  this.mostrarOpcionesVida=!this.mostrarOpcionesVida;
+}
+
+
+
+
 }
