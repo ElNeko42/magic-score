@@ -70,19 +70,19 @@
       <ion-icon name="arrow-down" class="dropdown-icon" (click)="toggleDropdown()"></ion-icon>
       <div *ngIf="showDropdown" class="dropdown-content">
         <!-- Icono de personas -->
-        <div (click)="seleccionarVida({tipo: 'icono', valor: 'people-outline'})" *ngIf="!mostrarOpcionesVida">
+        <div (click)="toggleOpcionesJugadores()" *ngIf="!mostrarOpcionesJugadores && !mostrarOpcionesVida">
           <ion-icon name="people-outline"></ion-icon>
         </div>
         <!-- Icono de corazón -->
-        <div (click)="abrirOpcionesVida()" *ngIf="!mostrarOpcionesVida">
+        <div (click)="abrirOpcionesVida()" *ngIf="!mostrarOpcionesJugadores && !mostrarOpcionesVida">
           <ion-icon name="heart-outline"></ion-icon>
         </div>
         <!-- Icono de refrescar -->
-        <div (click)="restear()" *ngIf="!mostrarOpcionesVida">
+        <div (click)="restear()" *ngIf="!mostrarOpcionesJugadores && !mostrarOpcionesVida">
           <ion-icon name="refresh-outline"></ion-icon>
         </div>
         <!-- Icono de dados -->
-        <div *ngIf="!mostrarOpcionesVida" (click)="mostrarDado()">
+        <div *ngIf="!mostrarOpcionesJugadores && !mostrarOpcionesVida" (click)="mostrarDado()">
           <ion-icon name="dice-outline"></ion-icon>
         </div>
 
@@ -91,6 +91,16 @@
         <div *ngIf="mostrarOpcionesVida" (click)="seleccionarVida({tipo: 'vida', valor: '30'})">30</div>
         <div *ngIf="mostrarOpcionesVida" (click)="seleccionarVida({tipo: 'vida', valor: '40'})">40</div>
         <ion-icon *ngIf="mostrarOpcionesVida" name="return-up-back" class="options-icon" (click)="goBack()"></ion-icon>
+
+
+        <div *ngIf="mostrarOpcionesJugadores" (click)="seleccionarNumeroJugadores(2)">2</div>
+        <div *ngIf="mostrarOpcionesJugadores" (click)="seleccionarNumeroJugadores(3)">3</div>
+        <div *ngIf="mostrarOpcionesJugadores" (click)="seleccionarNumeroJugadores(4)">4</div>
+        <div *ngIf="mostrarOpcionesJugadores" (click)="seleccionarNumeroJugadores(5)">5</div>
+        <div *ngIf="mostrarOpcionesJugadores" (click)="seleccionarNumeroJugadores(6)">6</div>
+        <ion-icon  *ngIf="mostrarOpcionesJugadores" name="return-up-back" class="options-icon" (click)="toggleOpcionesJugadores()"></ion-icon>
+
+
       </div>
     </div>
 

@@ -76,7 +76,8 @@ export class Tab1Page {
   dadoJugador1: number;
   dadoJugador2: number;
   ganador: number | null;
-  mostrarDadoComponente: boolean = false; // Propiedad para controlar la visibilidad del componente de dado
+  mostrarDadoComponente: boolean = false;
+  mostrarOpcionesJugadores: boolean = false;
 
   constructor() {
     this.dadoJugador1 = 0;
@@ -315,9 +316,18 @@ export class Tab1Page {
     this.mostrarDadoComponente = true;
   }
 
-
   hideDice() {
     this.mostrarDadoComponente = false;
     this.toggleDropdown()
   }
+  toggleOpcionesJugadores() {
+    this.mostrarOpcionesJugadores = !this.mostrarOpcionesJugadores;
+  }
+
+  seleccionarNumeroJugadores(numero: number) {
+    console.log(`Número de jugadores seleccionados: ${numero}`);
+    this.toggleDropdown()
+    this.mostrarOpcionesJugadores = false;
+  }
+
 }
