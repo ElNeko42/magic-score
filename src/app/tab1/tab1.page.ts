@@ -73,9 +73,16 @@ export class Tab1Page {
   opcionesActuales = this.opcionesPrincipales;
   vidaSeleccionada: number = 20;
   mostrarOpcionesVida: boolean = false;
+  dadoJugador1: number;
+  dadoJugador2: number;
+  ganador: number | null;
+  mostrarDadoComponente: boolean = false; // Propiedad para controlar la visibilidad del componente de dado
 
-
-  constructor() { }
+  constructor() {
+    this.dadoJugador1 = 0;
+    this.dadoJugador2 = 0;
+    this.ganador = null;
+  }
 
   aumentarVida(jugador: number) {
     if (jugador === 1) {
@@ -248,9 +255,9 @@ export class Tab1Page {
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
     this.showDropdown = this.isDropdownOpen;
-    this.mostrarOpcionesVida=false;
+    this.mostrarOpcionesVida = false;
   }
-  
+
   seleccionarVida(opcion: Opcion) {
     if (opcion.tipo === 'vida') {
       this.vidaSeleccionada = +opcion.valor;
@@ -274,12 +281,43 @@ export class Tab1Page {
   abrirOpcionesVida() {
     this.mostrarOpcionesVida = true;
     this.showDropdown = true;
-}
-goBack() {
-  this.mostrarOpcionesVida=!this.mostrarOpcionesVida;
-}
+  }
+  goBack() {
+    this.mostrarOpcionesVida = !this.mostrarOpcionesVida;
+  }
+
+  restear() {
+    this.vidaJugador1 = this.vidaSeleccionada;
+    this.vidaJugador2 = this.vidaSeleccionada;
+    this.toggleDropdown()
+  }
+
+  tirarDado(jugador: number) {
+    const resultado = Math.floor(Math.random() * 6) + 1; // Número aleatorio entre 1 y 6
+    if (jugador === 1) {
+      this.dadoJugador1 = resultado;
+    } else {
+      this.dadoJugador2 = resultado;
+    }
+
+    // Verificar si ambos jugadores han lanzado los dados
+    if (this.dadoJugador1 && this.dadoJugador2) {
+      if (this.dadoJugador1 > this.dadoJugador2) {
+        this.ganador = 1;
+      } else if (this.dadoJugador1 < this.dadoJugador2) {
+        this.ganador = 2;
+      } else {
+        this.ganador = null; // Empate
+      }
+    }
+  }
+  mostrarDado() {
+    this.mostrarDadoComponente = true;
+  }
 
 
-
-
+  hideDice() {
+    this.mostrarDadoComponente = false;
+    this.toggleDropdown()
+  }
 }

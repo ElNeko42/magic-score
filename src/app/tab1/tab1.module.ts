@@ -10,6 +10,7 @@ import { OpcionesComponent } from '../modales/opciones/opciones.component';
 import { ColoresComponent } from '../colores/colores.component';
 import { PlayerFooterComponent } from '../player-footer/player-footer.component'
 import { CalculadoraComponent } from '../calculadora/calculadora.component'
+import { DiceComponent } from '../components/dice/dice.component'
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { CalculadoraComponent } from '../calculadora/calculadora.component'
     OpcionesComponent,
     ColoresComponent,
     PlayerFooterComponent,
-    CalculadoraComponent],
+    CalculadoraComponent,
+    DiceComponent],
 })
 export class Tab1PageModule { }

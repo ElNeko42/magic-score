@@ -1,0 +1,21 @@
+@keyframes rollDice {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(90deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(270deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .dice {
+    animation: rollDice 1s ease-out;
+    width: 10em;
+  }
+  .winner-label {
+  font-size: 10px;
+  font-weight: bold;
+  color: gold;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
