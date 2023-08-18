@@ -6,11 +6,8 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import { OpcionesComponent } from '../modales/opciones/opciones.component';
-import { ColoresComponent } from '../colores/colores.component';
-import { PlayerFooterComponent } from '../player-footer/player-footer.component'
-import { CalculadoraComponent } from '../calculadora/calculadora.component'
-import { DiceComponent } from '../components/dice/dice.component'
+import { SharedModule } from '../shared/shared.module';
+
 
 
 @NgModule({
@@ -20,14 +17,10 @@ import { DiceComponent } from '../components/dice/dice.component'
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
-
+    SharedModule
   ],
   declarations: [
     Tab1Page,
-    OpcionesComponent,
-    ColoresComponent,
-    PlayerFooterComponent,
-    CalculadoraComponent,
-    DiceComponent],
+ ],
 })
 export class Tab1PageModule { }

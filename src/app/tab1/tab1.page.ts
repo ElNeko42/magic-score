@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface Opcion {
   tipo: string;
@@ -79,7 +80,7 @@ export class Tab1Page {
   mostrarDadoComponente: boolean = false;
   mostrarOpcionesJugadores: boolean = false;
 
-  constructor() {
+  constructor(private router: Router) {
     this.dadoJugador1 = 0;
     this.dadoJugador2 = 0;
     this.ganador = null;
@@ -325,9 +326,22 @@ export class Tab1Page {
   }
 
   seleccionarNumeroJugadores(numero: number) {
-    console.log(`Número de jugadores seleccionados: ${numero}`);
-    this.toggleDropdown()
+    switch (numero) {
+      case 2:
+        this.router.navigateByUrl('/tabs/tab1');  // Redirige a la pestaña de 2 jugadores
+        break;
+      case 3:
+        this.router.navigateByUrl('/tabs/tab2');  // Redirige a la pestaña de 3 jugadores
+        break;
+      case 4:
+        this.router.navigateByUrl('/tabs/tab3');  // Redirige a la pestaña de 4 jugadores
+        break;
+      // Puedes agregar más casos si tienes más pestañas para otros números de jugadores
+      default:
+        break;
+    }
     this.mostrarOpcionesJugadores = false;
   }
+  
 
 }
